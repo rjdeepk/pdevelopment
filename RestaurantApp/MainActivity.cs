@@ -12,6 +12,7 @@ namespace RestaurantApp
     {
         EditText myUserName;
         EditText myPassword;
+
         Button myBtn;
         Button registerBtn;
         DBHelper obj;
