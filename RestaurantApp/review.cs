@@ -13,7 +13,7 @@ using Android.Widget;
 namespace RestaurantApp
 {
     [Activity(Label = "review")]
-    public class review : Activity
+    public class Review : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

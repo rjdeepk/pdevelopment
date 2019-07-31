@@ -13,14 +13,13 @@ using Android.Widget;
 namespace RestaurantApp
 {
     [Activity(Label = "newRegisterScreen")]
-    public class newRegisterScreen : Activity
+    public class NewRegisterScreen : Activity
     {
         EditText name;
         EditText email;
         EditText password;
         EditText age;
         Button submit;
-        DBHelper obj;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
