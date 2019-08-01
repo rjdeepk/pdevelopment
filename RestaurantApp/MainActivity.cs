@@ -47,7 +47,7 @@ namespace RestaurantApp
                 bool userExist = obj.selectMyValues(value1, value2);
                 if (userExist)
                 {
-                    Intent newScreen = new Intent(this, typeof(NewEditScreen));
+                    Intent newScreen = new Intent(this, typeof(UserTab));
 
                     newScreen.PutExtra("userName", value1);
                     newScreen.PutExtra("userPassword", value2);

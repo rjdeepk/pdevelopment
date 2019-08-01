@@ -15,6 +15,19 @@ namespace RestaurantApp
 {
     public class Profile : Fragment
     {
+        public string listt;
+        
+        public Profile(string list1)
+        {
+            
+            listt = list1;
+
+        }
+
+        public Profile(string v, Fragment[] items)
+        {
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,9 +38,32 @@ namespace RestaurantApp
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            View myView = inflater.Inflate(Resource.Layout.Profile, container, false);
+            ListView listview = (ListView)myView.FindViewById(Resource.Id.listView1);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            //EDITED Code 
+            String[] items = new String[] { "Item 1", "Item 2", "Item 3" };
+            ArrayAdapter<String> adapter =
+            new ArrayAdapter<string>(Context, Android.Resource.Layout.SimpleListItem1, items);
+
+#pragma warning disable CS0618 // Type or member is obsolete
+            listview.SetAdapter(adapter);
+#pragma warning restore CS0618 // Type or member is obsolete
+            listview.ItemClick += myTeamClickMethod;
+
+            void myTeamClickMethod(object sender, AdapterView.ItemClickEventArgs e)
+            {
+                System.Console.WriteLine("Item clicked");
+
+                var ivalue = e.Position;
+                var myvalue = items[ivalue];
+
+                System.Console.WriteLine("Value is:-" + myvalue);
+
+            }
+
+            return myView;
+            //return base.OnCreateView(inflater, container, savedInstanceState);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace RestaurantApp
         }
 
         public string listt;
-        private Fragment localContext;
+        private readonly Fragment localContext;
         public Home(string list1, Fragment myContext)
         {
             localContext = myContext;
