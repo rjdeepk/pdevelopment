@@ -19,7 +19,7 @@ namespace RestaurantApp
         public String yrs;
         public int id;
 
-        public Rname(String mymovieName, int mymovieImageId, String years, String type)
+        public Rname1(String mymovieName, int mymovieImageId, String years, String type)
         {
             moviename = mymovieName;
             typeofmovie = type;

@@ -16,7 +16,7 @@ namespace RestaurantApp
     public class Profile : Fragment
     {
         public string listt;
-        Activity localContext;
+        readonly Activity localContext;
         public Profile(string list1, Activity myContext)
         {
             
@@ -46,11 +46,11 @@ namespace RestaurantApp
             View myView = inflater.Inflate(Resource.Layout.Profile, container, false);
             ListView listview = (ListView)myView.FindViewById(Resource.Id.listView1);
             
-            myUserList.Add(new Rname1("Lahoriye", Resource.Drawable.image1, "2", "Drama"));
-            myUserList.Add(new Rname1("Manje Bistre", Resource.Drawable.image1, "4", "Comedy"));
-            myUserList.Add(new Rname1("Rabb Da Radio", Resource.Drawable.image1, "5", "Drama"));
-            myUserList.Add(new Rname1("Carry on Jatta", Resource.Drawable.image1, "3", "Comedy"));
-            myUserList.Add(new Rname1("Ra One", Resource.Drawable.image1, "1", "Drama"));
+            myUserList.Add(new Rname1("Lahoriye", Resource.Drawable.register, "2", "Drama"));
+            myUserList.Add(new Rname1("Manje Bistre", Resource.Drawable.register, "4", "Comedy"));
+            myUserList.Add(new Rname1("Rabb Da Radio", Resource.Drawable.register, "5", "Drama"));
+            myUserList.Add(new Rname1("Carry on Jatta", Resource.Drawable.register, "3", "Comedy"));
+            myUserList.Add(new Rname1("Ra One", Resource.Drawable.register, "1", "Drama"));
             
             
             

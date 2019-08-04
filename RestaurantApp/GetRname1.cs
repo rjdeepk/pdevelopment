@@ -16,7 +16,7 @@ namespace RestaurantApp
     {
         ﻿    List<Rname1> myUserList;
             Activity localContext;
-            private Profile profile;
+            private readonly Profile profile;
 
             public GetRname1(Activity myContext, List<Rname1> myUsers) : base()
             {
