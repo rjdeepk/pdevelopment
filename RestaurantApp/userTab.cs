@@ -3,42 +3,30 @@ using Android.OS;
 
 namespace RestaurantApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class userTab : Activity
+    [Activity(Label = "@string/app_name")]
+    public class UserTab : Activity
     {
         Fragment[] _fragmentsArray;
-        //private readonly Fragment myContext;
-
-        //string name = "Welcome To my App";
-
-
+        //private Fragment myContext;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             // Set our view from the "main" layout resource
             RequestWindowFeature(Android.Views.WindowFeatures.ActionBar);
             //enable navigation mode to support tab layout
-            this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            UserTab userTab = this;
+            userTab.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.usertab);
-
-
             _fragmentsArray = new Fragment[]
             {
-            new Home( "Mike","21"),
-           // new Home("list1",myContext)
+            new Profile("list1",this)
             };
-
-
             AddTabToActionBar("Home"); //First Tab
-            AddTabToActionBar("Profile"); //First Tab
-
-
         }
-
-        private void AddTabToActionBar(string tabTitle)
+        void AddTabToActionBar(string tabTitle)
         {
 #pragma warning disable CS0618 // Type or member is obsolete
             Android.App.ActionBar.Tab tab = ActionBar.NewTab();
@@ -52,7 +40,9 @@ namespace RestaurantApp
             ActionBar.AddTab(tab);
         }
 
-        private void TabOnTabSelected(object sender, Android.App.ActionBar.TabEventArgs tabEventArgs)
+
+
+        void TabOnTabSelected(object sender, Android.App.ActionBar.TabEventArgs tabEventArgs)
         {
 #pragma warning disable CS0618 // Type or member is obsolete
 #pragma warning disable CS0618 // Type or member is obsolete
@@ -65,6 +55,9 @@ namespace RestaurantApp
 
             tabEventArgs.FragmentTransaction.Replace(Resource.Id.frameLayout11, frag);
         }
+
+
+
 
 
     }

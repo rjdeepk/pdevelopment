@@ -7,14 +7,14 @@ using Android.Content;
 
 namespace RestaurantApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity :Activity
+    [Activity(Label = "@string/app_name",  MainLauncher = true)]
+    public class MainActivity : Activity
     {
         EditText myUserName;
         EditText myPassword;
+
         Button myBtn;
         Button registerBtn;
-        DBHelper obj;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -47,7 +47,7 @@ namespace RestaurantApp
                 bool userExist = obj.selectMyValues(value1, value2);
                 if (userExist)
                 {
-                    Intent newScreen = new Intent(this, typeof(review));
+                    Intent newScreen = new Intent(this, typeof(UserTab));
 
                     newScreen.PutExtra("userName", value1);
                     newScreen.PutExtra("userPassword", value2);
@@ -73,7 +73,7 @@ namespace RestaurantApp
             };
             registerBtn.Click += delegate
             {
-                Intent registerScreen = new Intent(this, typeof(newRegisterScreen));
+                Intent registerScreen = new Intent(this, typeof(NewRegisterScreen));
                 StartActivity(registerScreen);
             };
 

@@ -15,12 +15,12 @@ using Android.Widget;
 namespace RestaurantApp
 {
     [Activity(Label = "newEditScreen")]
-    public class newEditScreen : Activity
+    public class NewEditScreen : Activity
     {
         String u;
         String p;
 
-        EditText edit;
+        EditText user;
         EditText pass;
         EditText email;
         EditText age;
@@ -35,11 +35,11 @@ namespace RestaurantApp
             // Create your application here
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.newscreen);
-            edit = FindViewById<EditText>(Resource.Id.uPro);
+            user = FindViewById<EditText>(Resource.Id.userRegister);
             pass = FindViewById<EditText>(Resource.Id.userPassword);
             email = FindViewById<EditText>(Resource.Id.userEmail);
             age = FindViewById<EditText>(Resource.Id.userAge);
-            editb = FindViewById<Button>(Resource.Id.edtbt);
+            editb = FindViewById<Button>(Resource.Id.submitBtn);
             ob = new DBHelper(this);
             u = Intent.GetStringExtra("userName");
             p = Intent.GetStringExtra("userPassword");
@@ -47,28 +47,28 @@ namespace RestaurantApp
 
 
 
-            edit.Text = u;
+            user.Text = u;
             pass.Text = p;
 
 
-            edit.Enabled = false;
+            user.Enabled = false;
             pass.Enabled = false;
             email.Enabled = false;
             age.Enabled = false;
-            ic = ob.Update(edit.Text, pass.Text);
+            ic = ob.Update(user.Text, pass.Text);
             email.Text = ic.GetString(ic.GetColumnIndex("email"));
             age.Text = ic.GetString(ic.GetColumnIndex("age"));
 
             editb.Click += delegate
             {
-                edit.Enabled = true;
+                user.Enabled = true;
                 pass.Enabled = true;
                 email.Enabled = true;
                 age.Enabled = true;
                 editb.Text = "Save";
                 editb.Click += delegate
                 {
-                    ob.updateMyValues(u, p, email.Text, age.Text);
+                    ob.updateMyValues(user.Text, pass.Text, email.Text, age.Text);
                     Intent newSc = new Intent(this, typeof(MainActivity));
                     StartActivity(newSc);
                 };
