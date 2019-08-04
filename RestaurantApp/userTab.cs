@@ -7,7 +7,7 @@ namespace RestaurantApp
     public class UserTab : Activity
     {
         Fragment[] _fragmentsArray;
-        
+        //private Fragment myContext;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,7 +22,7 @@ namespace RestaurantApp
             SetContentView(Resource.Layout.usertab);
             _fragmentsArray = new Fragment[]
             {
-            new Profile("list1")
+            new Profile("list1",this)
             };
             AddTabToActionBar("Home"); //First Tab
         }
