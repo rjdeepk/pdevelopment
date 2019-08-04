@@ -7,7 +7,7 @@ using Android.Content;
 
 namespace RestaurantApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name",  MainLauncher = true)]
     public class MainActivity : Activity
     {
         EditText myUserName;
