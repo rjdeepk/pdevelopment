@@ -37,7 +37,7 @@ namespace RestaurantApp
         }
 
         
-        List<Rname> myUserList = new List<Rname>();
+        List<Rname1> myUserList = new List<Rname1>();
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -46,17 +46,17 @@ namespace RestaurantApp
             View myView = inflater.Inflate(Resource.Layout.Profile, container, false);
             ListView listview = (ListView)myView.FindViewById(Resource.Id.listView1);
             
-            myUserList.Add(new Rname("Lahoriye", Resource.Drawable.image1, "2", "Drama"));
-            myUserList.Add(new Rname("Manje Bistre", Resource.Drawable.image1, "4", "Comedy"));
-            myUserList.Add(new Rname("Rabb Da Radio", Resource.Drawable.image1, "5", "Drama"));
-            myUserList.Add(new Rname("Carry on Jatta", Resource.Drawable.image1, "3", "Comedy"));
-            myUserList.Add(new Rname("Ra One", Resource.Drawable.image1, "1", "Drama"));
+            myUserList.Add(new Rname1("Lahoriye", Resource.Drawable.image1, "2", "Drama"));
+            myUserList.Add(new Rname1("Manje Bistre", Resource.Drawable.image1, "4", "Comedy"));
+            myUserList.Add(new Rname1("Rabb Da Radio", Resource.Drawable.image1, "5", "Drama"));
+            myUserList.Add(new Rname1("Carry on Jatta", Resource.Drawable.image1, "3", "Comedy"));
+            myUserList.Add(new Rname1("Ra One", Resource.Drawable.image1, "1", "Drama"));
             
             
             
             // Get our button from the layout resource,
 
-            var myAdatper = new GetRname(localContext, myUserList);
+            var myAdatper = new GetRname1(localContext, myUserList);
 
 #pragma warning disable CS0618 // Type or member is obsolete
             listview.SetAdapter(myAdatper);
