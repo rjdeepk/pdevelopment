@@ -46,7 +46,8 @@ namespace RestaurantApp
         public DBHelper(Context context) : base(context, name: _DatabaseName, factory: null, version: 1) //Step 2;
         {
             myContext = context;
-            myDBObj = WritableDatabase; // Step:3 create a DB objects
+            myDBObj = WritableDatabase;
+            myDBObj = ReadableDatabase;// Step:3 create a DB objects
         }
         public override void OnCreate(SQLiteDatabase db)
         {
@@ -97,10 +98,10 @@ namespace RestaurantApp
             }
         }
             //for review table
-            public bool SelectMyValues1(String username, String restname)
+            public bool SelectMyValues1(String username)
             {
 
-                String sqlQuery1 = "Select * from " + RTableName + " where " + UserName + " = " + "'" + username + "'" + " and " + Restname + " = " + "'" + restname + "'" + ";";
+                String sqlQuery1 = "Select * from " + RTableName + " where " + UserName + " = " + "'" + username + ";";
 
                 ICursor result1 = myDBObj.RawQuery(sqlQuery1, null);
                 if (result1.Count > 0)
@@ -116,12 +117,57 @@ namespace RestaurantApp
 
             }
         //Delete reviews
-        public void deletereview(string user,string rname)
+        public void Deletereview(string user,string rname)
         {
-            string dltStm = "Delete from " + RTableName + " where user='" + user + "'";
+            string dltStm = "Delete from " + RTableName + " where " + UserName + "=" + user + "and" + Restname + "="+ rname + ";";
             Console.WriteLine(dltStm);
             System.Console.WriteLine("My SQL  delete STM \n  \n" + dltStm);
             myDBObj.ExecSQL(dltStm);
+        }
+        //show reviews
+        public List<string> GetReviews()
+        {
+
+            List<string> resultr = new List<string>();
+            string Query = "select " + UserName + "," + Restname + "," + Review1 + " from " + RTableName + ";";
+            System.Console.WriteLine("My SQL  select STM \n  \n" + Query);
+
+            try
+            {
+                ICursor cursor = myDBObj.RawQuery(Query, new string[] { });
+
+                while (cursor.MoveToNext())
+                {
+                    var uname = cursor.GetString(cursor.GetColumnIndexOrThrow(UserName));
+                    var r = cursor.GetString(cursor.GetColumnIndexOrThrow(Restname));
+                    var rr = cursor.GetString(cursor.GetColumnIndexOrThrow(Review1));
+                    resultr.Add(uname);
+                    resultr.Add(r);
+                    resultr.Add(rr);
+
+                }
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+            }
+            return resultr;
+
+        }
+
+
+        public ICursor Viewdata()
+        {
+            SQLiteDatabase db = this.GetReadableDatabase();
+            String sqlQuery = "Select * from " + RTableName + ";";
+            ICursor resultr = myDBObj.RawQuery(sqlQuery, null);
+
+            return resultr;
+        }
+
+        private SQLiteDatabase GetReadableDatabase()
+        {
+            throw new NotImplementedException();
         }
 
         public ICursor Update(string userName, string passWord)

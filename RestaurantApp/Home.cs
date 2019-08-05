@@ -27,8 +27,9 @@ namespace RestaurantApp
         }
 
         public string listt;
-        private readonly Fragment localContext;
-        public Home(string list1, Fragment myContext)
+        //private readonly Fragment localContext;
+        readonly Activity localContext;
+        public Home(string list1, Activity myContext)
         {
             localContext = myContext;
             listt = list1;
@@ -59,7 +60,7 @@ namespace RestaurantApp
             ListView listview = (ListView)myView.FindViewById(Resource.Id.listView1);
 
             //EDITED Code 
-            String[] items = new String[] { "Item 1", "Item 2", "Item 3" };
+            String[] items = new String[] { "Rest 1", "Rest 2", "Rest 3" };
             ArrayAdapter<String> adapter =
             new ArrayAdapter<string>(Context, Android.Resource.Layout.SimpleListItem1, items);
 

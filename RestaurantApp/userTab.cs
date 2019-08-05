@@ -22,9 +22,13 @@ namespace RestaurantApp
             SetContentView(Resource.Layout.usertab);
             _fragmentsArray = new Fragment[]
             {
-            new Profile("list1",this)
+            new Home("list1",this),
+            new Review(this),
+            new Review(this)
             };
-            AddTabToActionBar("Home"); //First Tab
+            AddTabToActionBar("Home");//First Tab
+            AddTabToActionBar("Favourite"); //Second Tab
+            AddTabToActionBar("Review"); //Third Tab
         }
         void AddTabToActionBar(string tabTitle)
         {
@@ -32,6 +36,7 @@ namespace RestaurantApp
             Android.App.ActionBar.Tab tab = ActionBar.NewTab();
 #pragma warning restore CS0618 // Type or member is obsolete
             tab.SetText(tabTitle);
+            
 
             tab.SetIcon(Android.Resource.Drawable.IcInputAdd);
 
