@@ -64,7 +64,7 @@ namespace RestaurantApp
                 }
                 else
                 {
-                    obj.insertValue(value1, value2, value3, value4);
+                    obj.InsertValue(value1, value2, value3, value4);
 
                     alert.SetMessage(" Registration successfull");
                     alert.SetPositiveButton("OK", (senderAlert, args) => {

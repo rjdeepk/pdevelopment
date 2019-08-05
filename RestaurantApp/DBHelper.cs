@@ -24,13 +24,23 @@ namespace RestaurantApp
         private const string ColumnAge = "age";
 
         public const string CreateUserTableQuery = "CREATE TABLE " +
-        TableName + " ( " + ColumnName + " TEXT," + ColumnEmail + " TEXT," + ColumnPassword + " TEXT,"
-            + ColumnAge + " TEXT)";  //Step: 1 - 4
+       TableName + " ( " + ColumnName + " TEXT," + ColumnEmail + " TEXT," + ColumnPassword + " TEXT,"
+           + ColumnAge + " TEXT)";  //Step: 1 - 4
 
 
+        //Review Table
+        private const string RTableName = "Review";
+        private const string UserName = "username";
+        private const string Restname = "restname";
+        private const string Review1 = "review";
+
+
+        public const string CreateUserTableQuery1 = "CREATE TABLE " +
+       RTableName + " ( " + UserName + " TEXT," + Restname + " TEXT,"   + Review1 + " TEXT)";
+       
 
         SQLiteDatabase myDBObj; // Step: 1 - 5
-        Context myContext; // Step: 1 - 6
+        readonly Context myContext; // Step: 1 - 6
 
 
         public DBHelper(Context context) : base(context, name: _DatabaseName, factory: null, version: 1) //Step 2;
@@ -40,9 +50,13 @@ namespace RestaurantApp
         }
         public override void OnCreate(SQLiteDatabase db)
         {
+            Console.WriteLine("Table1");
             db.ExecSQL(CreateUserTableQuery);
+            Console.WriteLine("Table2");
+            db.ExecSQL(CreateUserTableQuery1);
         }
-        public void insertValue(string nameValue, string emailValue, string passwordValue, string ageValue)
+        //insert values user/password table
+        public void InsertValue(string nameValue, string emailValue, string passwordValue, string ageValue)
         {
             //insert into users value( name, email,password,age)
 
@@ -53,7 +67,21 @@ namespace RestaurantApp
             myDBObj.ExecSQL(insertSQL);
 
         }
-        public bool selectMyValues(String userName, String passWord)
+        //insert values review table
+
+        public void InsertValue1(string username, string restname, string review)
+        {
+            //insert into users value( name, email,password,age)
+
+
+            String insertSQL1 = "insert into " + RTableName + " values (" + "'" + UserName + "'" + "," + "'" + Restname + "'" + "," + "'" + Review1 + "'" + ");";
+
+            System.Console.WriteLine("UserName: " + username + "\nRestaurantName :" + restname + "\nReview" + review);
+            myDBObj.ExecSQL(insertSQL1);
+
+        }
+        //for user login table
+        public bool SelectMyValues(String userName, String passWord)
         {
 
             String sqlQuery = "Select * from " + TableName + " where " + ColumnName + " = " + "'" + userName + "'" + " and " + ColumnPassword + " = " + "'" + passWord + "'" + ";";
@@ -67,11 +95,35 @@ namespace RestaurantApp
             {
                 return false;
             }
-
-
-
-
         }
+            //for review table
+            public bool SelectMyValues1(String username, String restname)
+            {
+
+                String sqlQuery1 = "Select * from " + RTableName + " where " + UserName + " = " + "'" + username + "'" + " and " + Restname + " = " + "'" + restname + "'" + ";";
+
+                ICursor result1 = myDBObj.RawQuery(sqlQuery1, null);
+                if (result1.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+        //Delete reviews
+        public void deletereview(string user,string rname)
+        {
+            string dltStm = "Delete from " + RTableName + " where user='" + user + "'";
+            Console.WriteLine(dltStm);
+            System.Console.WriteLine("My SQL  delete STM \n  \n" + dltStm);
+            myDBObj.ExecSQL(dltStm);
+        }
+
         public ICursor Update(string userName, string passWord)
         {
             String sqlQuery = "Select * from " + TableName + " where " + ColumnName + " = " + "'" + userName + "'" + " and " + ColumnPassword + " = " + "'" + passWord + "'" + ";";
@@ -89,7 +141,7 @@ namespace RestaurantApp
 
         }
 
-        public void updateMyValues(String un, String pw, String email, String age)
+        public void UpdateMyValues(String un, String pw, String email, String age)
         {
             String sqlupQuery = "Update " + TableName + " Set " + ColumnName + "='" + un + "', " + ColumnPassword + "=" + "'" + pw + "', " + ColumnEmail + "='" + email + "', " + ColumnAge + "=' " + age + "';";
             System.Console.WriteLine("Update SQL " + sqlupQuery);
