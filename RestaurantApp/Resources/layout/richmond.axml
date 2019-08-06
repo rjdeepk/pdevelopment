@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@drawable/background">
+
+	<ImageView
+		android:layout_width="385dp"
+		android:layout_height="250dp"
+		android:src="@drawable/richmond"
+    />
+	<TextView
+	    android:id="@+id/info1"
+		android:layout_width="400dp"
+		android:layout_height="50dp"
+		android:background="#ede031"
+		android:fontFamily="Comic Sans MS"
+		android:textSize="27dp"
+		android:gravity="center"
+		android:hint= "Richmond Station "	
+	/>
+	<TextView
+	    android:id="@+id/info1"
+		android:layout_width="400dp"
+		android:layout_height="100dp"
+		android:background="#ed9d42"
+		android:textSize="20dp"
+		android:gravity="center"
+		android:hint= "Address:1 Richmond St W, Toronto, ON  "	
+	/>
+	<TextView
+	    android:id="@+id/info1"
+		android:layout_width="400dp"
+		android:layout_height="100dp"
+		android:background="#ed9d42"
+		android:textSize="20dp"
+		android:gravity="center"
+		android:hint= "Phone: 647-748-1444"	/>
+	<TextView
+	    android:id="@+id/info1"
+		android:layout_width="400dp"
+		android:layout_height="100dp"
+		android:background="#ed9d42"
+		android:textSize="21dp"
+		android:gravity="center"
+		android:hint= "Hours: Sunday to Saturday (11a.m-10:30pm)"	/>
+
+
+</LinearLayout>
