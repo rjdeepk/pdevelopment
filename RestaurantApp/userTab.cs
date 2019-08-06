@@ -1,5 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Widget;
+using Android.Views;
+using Android.Content;
 
 namespace RestaurantApp
 {
@@ -8,7 +11,8 @@ namespace RestaurantApp
     {
         Fragment[] _fragmentsArray;
         //private Fragment myContext;
-
+        Spinner spinnerView;
+        string[] myCategory = { "Logout", "Kids", "Others" };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             // Set our view from the "main" layout resource
@@ -18,6 +22,13 @@ namespace RestaurantApp
             userTab.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
             base.OnCreate(savedInstanceState);
+            spinnerView = FindViewById<Spinner>(Resource.Id.spinner1);
+
+            spinnerView.Adapter = new ArrayAdapter
+                (this, Android.Resource.Layout.SimpleListItem1, myCategory);
+
+
+            spinnerView.ItemSelected += MyItemSelectedMethod;
 
             SetContentView(Resource.Layout.usertab);
             _fragmentsArray = new Fragment[]
@@ -61,9 +72,28 @@ namespace RestaurantApp
             tabEventArgs.FragmentTransaction.Replace(Resource.Id.frameLayout11, frag);
         }
 
+        void MyItemSelectedMethod(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var index = e.Position;
 
+            var value = myCategory[index];
+            System.Console.WriteLine("value is " + value);
+
+
+            if (value.ToLower().Equals("Logout"))
+            {
+                Intent registerScreen = new Intent(this, typeof(NewRegisterScreen));
+                StartActivity(registerScreen);
+                //create a veg array and create as a new adater 
+
+            }
+
+        }
 
 
 
     }
+
+
+
 }
