@@ -37,7 +37,7 @@ namespace RestaurantApp
         }
 
         
-        List<Rname1> myUserList = new List<Rname1>();
+       /* List<Rname1> myUserList = new List<Rname1>();
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -82,7 +82,7 @@ namespace RestaurantApp
 
             return myView;
             //return base.OnCreateView(inflater, container, savedInstanceState);
-        }
+        }*/
 
        
     }

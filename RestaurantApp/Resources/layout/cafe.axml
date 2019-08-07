@@ -8,43 +8,43 @@
 	<ImageView
 		android:layout_width="385dp"
 		android:layout_height="250dp"
-		android:src="@drawable/richmond"
+		android:src="@drawable/cafe"
     />
 	<TextView
-	    android:id="@+id/info1"
+	    android:id="@+id/info3"
 		android:layout_width="400dp"
 		android:layout_height="50dp"
 		android:background="#ede031"
 		android:fontFamily="Comic Sans MS"
 		android:textSize="27dp"
 		android:gravity="center"
-		android:hint= "Richmond Station "	
+		android:hint= "Cafe Polonez "	
 	/>
 	<TextView
-	    android:id="@+id/add1"
+	    android:id="@+id/add3"
 		android:layout_width="400dp"
 		android:layout_height="100dp"
 		android:background="#ed9d42"
 		android:textSize="20dp"
 		android:gravity="center"
-		android:hint= "Address:1 Richmond St W, Toronto, ON  "	
+		android:hint= "Address: 195 Roncesvalles Ave,  Toronto, ON  "	
 	/>
 	<TextView
-	    android:id="@+id/p1"
+	    android:id="@+id/p3"
 		android:layout_width="400dp"
 		android:layout_height="100dp"
 		android:background="#ed9d42"
 		android:textSize="20dp"
 		android:gravity="center"
-		android:hint= "Phone: 647-748-1444"	/>
+		android:hint= "Phone: 416- 532-8432"	/>
 	<TextView
-	    android:id="@+id/hr1"
+	    android:id="@+id/hr3"
 		android:layout_width="400dp"
 		android:layout_height="100dp"
 		android:background="#ed9d42"
 		android:textSize="21dp"
 		android:gravity="center"
-		android:hint= "Hours: Sunday to Saturday (11a.m-10:30pm)"	/>
+		android:hint= "Hours: Monday to Saturday     (11a.m-10pm)"	/>
 
 
 </LinearLayout>

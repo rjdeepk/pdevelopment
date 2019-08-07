@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
@@ -30,29 +30,43 @@
 			android:hint= "Enter Restaurant name"	
 	/>
 	</LinearLayout>
-	
-	<EditText
-		android:id="@+id/comment"
-		android:layout_width="300dp"
-		android:layout_height="200dp"
-		android:background="#9999"
-		android:textSize="15dp"
-		android:layout_marginLeft="40dp"
-		android:layout_marginTop="20dp"
-		android:paddingLeft="10dp"
-		android:hint= "Write comment"
+
+	<RatingBar
+		android:id="@+id/star"
+		android:rating="0"
+		android:layout_marginTop="45dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:progressBackgroundTint="#ffffff"
+		android:numStars="5"
+		android:stepSize="0.5"
 		
-	/>
+	 
+	 />
 	<Button
-		android:id="@+id/submitBtn"
+		android:id="@+id/sbBtn"
+		android:gravity="center"
 		android:layout_width="300dp"
 		android:layout_height="40dp"
-		android:layout_marginTop="25dp"
+		android:layout_gravity="center"
 		android:textAllCaps="false"
-		android:text="Add review"
-		android:layout_marginLeft="40dp"
+		android:layout_marginTop="45dp"
+		android:text="Submit"
 		android:textColor="#000000"
 		android:background="#ede031"
 	/>
-</LinearLayout>
+	<TextView
+		android:id="@+id/ratStar"
+		android:layout_width="300dp"
+		android:layout_height="40dp"
+		android:textSize="40dp"
+		android:textColor="#ffffffff"
+		android:hint= "Rating: "
+		android:layout_marginTop="30dp"
+		android:paddingLeft="10dp"
+		
+      />
 
+	
+</LinearLayout>

@@ -73,7 +73,7 @@ namespace RestaurantApp
             };
             registerBtn.Click += delegate
             {
-                Intent registerScreen = new Intent(this, typeof(NewRegisterScreen));
+                Intent registerScreen = new Intent(this, typeof(Rate));
                 StartActivity(registerScreen);
             };
 
