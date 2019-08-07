@@ -68,7 +68,7 @@ namespace RestaurantApp
                 editb.Text = "Save";
                 editb.Click += delegate
                 {
-                    ob.updateMyValues(user.Text, pass.Text, email.Text, age.Text);
+                    ob.UpdateMyValues(user.Text, pass.Text, email.Text, age.Text);
                     Intent newSc = new Intent(this, typeof(MainActivity));
                     StartActivity(newSc);
                 };

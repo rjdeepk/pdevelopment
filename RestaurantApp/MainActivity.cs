@@ -32,11 +32,7 @@ namespace RestaurantApp
 
 
 
-            alert.SetNegativeButton("Wrong values", (senderAlert, args) => {
-
-                Toast.MakeText(this, "Please Enter a Valid! Value", ToastLength.Short).Show();
-            });
-
+           
             Dialog dialog = alert.Create();
 
             myBtn.Click += delegate {
@@ -44,7 +40,7 @@ namespace RestaurantApp
                 var value1 = myUserName.Text;
                 var value2 = myPassword.Text;
 
-                bool userExist = obj.selectMyValues(value1, value2);
+                bool userExist = obj.SelectMyValues(value1, value2);
                 if (userExist)
                 {
                     Intent newScreen = new Intent(this, typeof(UserTab));
